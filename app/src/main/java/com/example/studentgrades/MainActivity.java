@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     EditText num, a, b, c, d, f;
     Button compute;
+
+    double percentA, percentB, percentC, percentD, percentF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,20 +59,34 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        percentA = numA/total*100;
+        percentB = numB/total*100;
+        percentC = numC/total*100;
+        percentD = numD/total*100;
+        percentF = numF/total*100;
 
         // show dialog
         AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
         adb.setMessage("Student Grade Distribution:" +
-                "\nA Students: "  + numA/total*100 + "%" +
-                "\nB Students: " + numB/total*100 + "%" +
-                "\nC Students: " + numC/total*100 + "%" +
-                "\nD Students: " + numD/total*100 + "%" +
-                "\nF Students: " + numF/total*100 + "%")
+                "\nA Students: " + percentA + "%" +
+                "\nB Students: " + percentB + "%" +
+                "\nC Students: " + percentC + "%" +
+                "\nD Students: " + percentD + "%" +
+                "\nF Students: " + percentF + "%")
                 .setCancelable(false)
                 .setPositiveButton("View chart", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        // code to make bar chart
+                        // start BarChartActivity
+                        Intent intent = new Intent(getApplicationContext(), BarChartActivity.class);
+                        intent.putExtra("A students", percentA);
+                        intent.putExtra("B students", percentB);
+                        intent.putExtra("C students", percentC);
+                        intent.putExtra("D students", percentD);
+                        intent.putExtra("F students", percentF);
+
+                        startActivity(intent);
+
                     }
                 })
                 .setNegativeButton("Okay", new DialogInterface.OnClickListener() {
@@ -87,4 +104,5 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alert = adb.create();
         alert.show();
     }
+
 }
