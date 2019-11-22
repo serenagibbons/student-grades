@@ -74,6 +74,7 @@ public class BarChartActivity extends AppCompatActivity {
         barData = new BarData(barEntryLabels, barDataSet);
         barDataSet.setColors(ColorTemplate.PASTEL_COLORS);
         chart.setData(barData);
+        chart.setContentDescription(null);
         chart.animateY(3000);
     }
 

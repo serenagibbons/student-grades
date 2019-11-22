@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText num, a, b, c, d, f;
@@ -62,14 +64,16 @@ public class MainActivity extends AppCompatActivity {
         percentD = numD/total*100;
         percentF = numF/total*100;
 
+        DecimalFormat f = new DecimalFormat("##.00");
+
         // show dialog
         AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
         adb.setMessage("Student Grade Distribution:" +
-                "\nA Students: " + percentA + "%" +
-                "\nB Students: " + percentB + "%" +
-                "\nC Students: " + percentC + "%" +
-                "\nD Students: " + percentD + "%" +
-                "\nF Students: " + percentF + "%")
+                "\nA Students: " + f.format(percentA) + "%" +
+                "\nB Students: " + f.format(percentB) + "%" +
+                "\nC Students: " + f.format(percentC) + "%" +
+                "\nD Students: " + f.format(percentD) + "%" +
+                "\nF Students: " + f.format(percentF) + "%")
                 .setCancelable(false)
                 .setPositiveButton("View chart", new DialogInterface.OnClickListener() {
                     @Override
