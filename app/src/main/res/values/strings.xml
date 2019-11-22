@@ -6,6 +6,15 @@
     <string name="C_students">C Students</string>
     <string name="D_students">D Students</string>
     <string name="F_students">F Students</string>
+
+    <!-- toast messages -->
+    <string name="toast_empty">Invalid input: fields cannot be empty</string>
+    <string name="toast_invalidNum">Invalid input: sum of each grade must add up to number of students</string>
+
+
+    <!-- button labels -->
     <string name="compute">Compute</string>
-    <string name="toast">Invalid input data</string>
+    <string name="clear">Clear</string>
+    <string name="back">Back</string>
+
 </resources>

@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
@@ -44,14 +46,14 @@ public class BarChartActivity extends AppCompatActivity {
 
     public void addBarValues() {
 
-        barEntry.add(new BarEntry((float)percentA, 0));
-        barEntry.add(new BarEntry((float)percentB, 1));
-        barEntry.add(new BarEntry((float)percentC, 2));
-        barEntry.add(new BarEntry((float)percentD, 3));
-        barEntry.add(new BarEntry((float)percentF, 4));
+        barEntry.add(new BarEntry((float) percentA, 0));
+        barEntry.add(new BarEntry((float) percentB, 1));
+        barEntry.add(new BarEntry((float) percentC, 2));
+        barEntry.add(new BarEntry((float) percentD, 3));
+        barEntry.add(new BarEntry((float) percentF, 4));
     }
 
-    public void addBarEntryLabels(){
+    public void addBarEntryLabels() {
 
         barEntryLabels.add("A");
         barEntryLabels.add("B");
@@ -70,7 +72,13 @@ public class BarChartActivity extends AppCompatActivity {
 
         barDataSet = new BarDataSet(barEntry, "Student Grades");
         barData = new BarData(barEntryLabels, barDataSet);
+        barDataSet.setColors(ColorTemplate.PASTEL_COLORS);
         chart.setData(barData);
         chart.animateY(3000);
+    }
+
+    public void goBack(View view) {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 }

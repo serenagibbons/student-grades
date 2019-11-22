@@ -7,11 +7,22 @@
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
+    android:orientation="vertical"
     tools:context=".BarChartActivity">
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chart1"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        android:layout_weight="7"
+        android:layout_height="0dp" />
+
+    <Button
+        android:id="@+id/btn_back"
+        android:text="@string/back"
+        android:layout_weight="1"
+        android:layout_gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:onClick="goBack" />
 
 </LinearLayout>

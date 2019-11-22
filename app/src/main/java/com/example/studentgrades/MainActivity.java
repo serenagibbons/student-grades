@@ -46,16 +46,13 @@ public class MainActivity extends AppCompatActivity {
         }
         catch (NumberFormatException e) {
             // toast error message
-            Toast.makeText(this, "Invalid input data", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getResources().getString(R.string.toast_empty), Toast.LENGTH_LONG).show();
+            return;
+        }
 
-            // clear edit text fields
-            num.setText("");
-            a.setText("");
-            b.setText("");
-            c.setText("");
-            d.setText("");
-            f.setText("");
-
+        if ((numA + numB + numC + numD + numF) != total) {
+            // toast error message
+            Toast.makeText(this, getResources().getString(R.string.toast_invalidNum), Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -86,23 +83,25 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra("F students", percentF);
 
                         startActivity(intent);
-
                     }
                 })
-                .setNegativeButton("Okay", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Back", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        // clear edit text fields
-                        num.setText("");
-                        a.setText("");
-                        b.setText("");
-                        c.setText("");
-                        d.setText("");
-                        f.setText("");
+                        // do nothing
                     }
                 });
         AlertDialog alert = adb.create();
         alert.show();
     }
 
+    public void clearData (View view) {
+     // clear edit text fields
+        num.setText("");
+        a.setText("");
+        b.setText("");
+        c.setText("");
+        d.setText("");
+        f.setText("");
+    }
 }

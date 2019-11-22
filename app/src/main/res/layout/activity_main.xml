@@ -27,7 +27,8 @@
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:importantForAutofill="no"/>
+        android:importantForAutofill="no"
+        tools:ignore="LabelFor" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,7 +44,8 @@
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:importantForAutofill="no"/>
+        android:importantForAutofill="no"
+        tools:ignore="LabelFor" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,7 +61,8 @@
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:importantForAutofill="no"/>
+        android:importantForAutofill="no"
+        tools:ignore="LabelFor" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -75,7 +78,8 @@
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:importantForAutofill="no"/>
+        android:importantForAutofill="no"
+        tools:ignore="LabelFor" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -91,7 +95,8 @@
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:importantForAutofill="no"/>
+        android:importantForAutofill="no"
+        tools:ignore="LabelFor" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -107,13 +112,30 @@
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:importantForAutofill="no"/>
+        android:importantForAutofill="no"
+        tools:ignore="LabelFor" />
 
-    <Button
-        android:id="@+id/btn_compute"
-        android:text="@string/compute"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="computeStats"/>
+        style="android:attr/buttonBarStyle">
+
+        <Button
+            style="android/attr/buttonBarButtonStyle"
+            android:id="@+id/btn_compute"
+            android:text="@string/compute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="computeStats"/>
+
+        <Button
+            android:id="@+id/btn_clear"
+            style="android/attr/buttonBarButtonStyle"
+            android:text="@string/clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="clearData"/>
+
+    </LinearLayout>
 
 </LinearLayout>
